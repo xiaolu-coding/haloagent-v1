@@ -112,14 +112,28 @@ def resolve_provider(config: LLMConfig) -> ResolvedProvider:
     )
 
 
+def _offline_reply(messages) -> str:
+    task = ""
+    for message in reversed(messages):
+        if getattr(message, "role", "") == "user":
+            task = getattr(message, "content", "")
+            break
+    task = task.replace("\n", " ")[:100]
+    return (
+        "Final Answer: [Mock 模式] 已收到任务："
+        + (task or "（空）")
+        + "。这是离线占位回答；配置真实模型（.env）后即可获得真实结果。"
+    )
+
+
 def create_model(config: LLMConfig, *, force_mock: bool | None = None) -> ChatModel:
     """按配置创建模型；真实模型自动套一层重试。"""
     if force_mock or config.mock or config.provider.lower() in {"mock", "scripted"}:
-        return MockChatModel("Final Answer: [mock model]")
+        return MockChatModel(_offline_reply)
 
     resolved = resolve_provider(config)
     if resolved.provider == "mock":
-        return MockChatModel("Final Answer: [mock model]")
+        return MockChatModel(_offline_reply)
 
     inner = OpenAICompatModel(
         model=resolved.model,

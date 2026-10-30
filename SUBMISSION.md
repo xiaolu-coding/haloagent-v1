@@ -38,7 +38,7 @@
 E:\helloAgents学习\haloagent-v1
 ```
 
-本地已初始化 git，提交号见 `git log -1 --oneline`。
+本地已初始化 git，提交记录见 `git log -1 --oneline`。
 
 ### 提交到公网（二选一）
 
@@ -97,7 +97,7 @@ https://github.com/<你的GitHub用户名>/haloagent-v1
 
 | 第 4 周要求 | 产出 | 证据 |
 |---|---|---|
-| 自研框架 v1.0 | `src/haloagent/` | 7 个模块、约 2.5k 行 |
+| 自研框架 v1.0 | `src/haloagent/` | 7 个模块、约 3.8k 行 |
 | 代码仓库 | 本地 git + 远端待推送 | `git log -1` |
 | 架构图 | `docs/architecture.png` | 五层架构 |
 | 单元测试 | `tests/` | 22 passed |

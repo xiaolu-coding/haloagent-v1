@@ -53,10 +53,16 @@ def create_agent(
 
 
 def build_tools(names: list[str] | None = None, plugins: list[str] | None = None) -> ToolRegistry:
-    """按名称组装工具：内置工具直接注册，插件路径/模块名走 load_plugin。"""
-    requested = list(names or [])
-    builtin_names = [name for name in requested if name in BUILTIN_NAMES]
-    registry = default_registry(builtin_names or (None if not requested else []))
+    """按名称组装工具：内置工具直接注册，插件路径/模块名走 load_plugin。
+
+    ``names=None`` 表示"全部内置工具"；``names=[]`` 表示"不要内置工具"。
+    """
+    if names is None:
+        registry = default_registry()
+        requested: list[str] = []
+    else:
+        requested = list(names)
+        registry = default_registry([name for name in requested if name in BUILTIN_NAMES])
     for plugin in plugins or []:
         registry.load_plugin(plugin)
     for name in requested:

@@ -9,7 +9,7 @@
 | 范式 | 状态 | LLM 调用 | 工具调用 | 步数 | Prompt Tokens | Completion Tokens | 总 Tokens | 耗时(s) |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
 | ReAct | success | 3 | 2 | 3 | 1561 | 105 | 1666 | 0.002 |
-| Plan-and-Solve | success | 7 | 2 | 3 | 2604 | 149 | 2753 | 0.003 |
+| Plan-and-Solve | success | 7 | 2 | 3 | 2604 | 149 | 2753 | 0.004 |
 | Reflection | success | 6 | 2 | 5 | 2575 | 145 | 2720 | 0.003 |
 
 > Token 为框架估算值（Mock 模式无供应商 usage）；真实模式以 API 返回为准。
@@ -28,7 +28,7 @@
 - `tool_result` OK (3*5)+(2*38) = 91
 - `final` 北京今天晴、18°C，适合户外。地铁票 15 元 + 午餐 76 元 = 91 元。建议：① 上午去公园，午后转室内展馆避开日晒；② 预留 10% 机动预算。
 
-完整 trace：`E:\helloAgents学习\haloagent-v1\runs\react-20261030-154720-b7424c.jsonl`
+完整 trace：`E:\helloAgents学习\haloagent-v1\runs\react-20261030-155042-d0140a.jsonl`
 
 ### Plan-and-Solve
 
@@ -43,7 +43,7 @@
 - `tool_result` OK (3*5)+(2*38) = 91
 - `final` 北京今天晴、18°C，适合户外。3 张地铁票 15 元，2 份午餐 76 元，合计 91 元。建议上午安排户外、下午转室内，并预留少量机动预算。
 
-完整 trace：`E:\helloAgents学习\haloagent-v1\runs\plan_solve-20261030-154720-efa561.jsonl`
+完整 trace：`E:\helloAgents学习\haloagent-v1\runs\plan_solve-20261030-155042-710a13.jsonl`
 
 ### Reflection
 
@@ -60,7 +60,7 @@
 - `revision` 北京今天晴、18°C，适合户外。费用分项：3 张地铁票 15 元，2 份午餐 76 元，合计 91 元。建议：① 上午安排公园或徒步，午后转室内展馆；② 带薄外套并预留 10% 机动预算。
 - `reflection` score=9 issues=[] suggestion=可以交付
 
-完整 trace：`E:\helloAgents学习\haloagent-v1\runs\reflection-20261030-154720-aa4839.jsonl`
+完整 trace：`E:\helloAgents学习\haloagent-v1\runs\reflection-20261030-155042-9221c2.jsonl`
 
 ## 结论
 

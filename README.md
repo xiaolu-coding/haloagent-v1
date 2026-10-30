@@ -15,7 +15,7 @@
 cd E:\helloAgents学习\haloagent-v1
 $env:PYTHONPATH="$PWD\src"
 
-python -m pytest -q                          # 22 个单元测试
+python -m pytest                             # 22 个单元测试
 python demo/compare_paradigms.py             # 三范式同一任务对比
 python demo/hotplug_demo.py                  # 工具热插拔
 python -m haloagent workflow examples/workflows/travel_brief.yaml --config configs/mock.yaml
@@ -48,7 +48,7 @@ LLM_MODEL_ID=deepseek-chat
 
 | 第 4 周要求 | 本项目落点 | 证据 |
 |---|---|---|
-| 自研智能体框架 v1.0 | `src/haloagent/`，7 个模块、约 2.5k 行 | `README` / `docs/ARCHITECTURE.md` |
+| 自研智能体框架 v1.0 | `src/haloagent/`，7 个模块、约 3.8k 行 | `README` / `docs/ARCHITECTURE.md` |
 | 模型层 Model Layer | `ChatModel` 抽象 + `OpenAICompatModel` + `MockChatModel` + `RetryingChatModel` | `models/`、`test_models.py` |
 | Tool/Skill 注册与调度 | `@tool` 自动 Schema、`ToolRegistry`、插件热加载/卸载 | `tools/`、`test_tools.py` |
 | Agent 主循环 | `BaseAgent.run()` 统一生命周期；ReAct 的 Thought-Action-Observation | `agents/base.py`、`agents/react.py` |
