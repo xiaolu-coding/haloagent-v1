@@ -1,0 +1,29 @@
+# 无网络演示配置：所有模型调用都由本地脚本模型返回
+llm:
+  provider: mock
+  mock: true
+  temperature: 0.0
+
+agent:
+  name: Halo-Demo
+  paradigm: react
+  max_steps: 6
+
+memory:
+  strategy: window
+  max_messages: 24
+  max_tokens: 3000
+
+trace:
+  enabled: true
+  dir: runs
+  console: false
+  redact: true
+  save_result: true
+
+tools:
+  - calculator
+  - current_time
+
+plugins:
+  - examples/plugins/weather_fixture.py

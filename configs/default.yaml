@@ -1,0 +1,43 @@
+# HaloAgent 默认配置
+# 环境变量优先级最高：LLM_API_KEY / LLM_BASE_URL / LLM_MODEL_ID 可覆盖这里。
+llm:
+  provider: auto          # auto | deepseek | dashscope | openai | zhipu | moonshot | modelscope | ollama | mock
+  model: ""               # 留空则用 provider 默认模型
+  temperature: 0.2
+  max_tokens: null
+  timeout: 60
+  max_attempts: 3         # 429/5xx/超时会指数退避重试
+  backoff: 1.0
+  mock: false
+
+agent:
+  name: Halo
+  paradigm: react         # simple | react | plan_solve | reflection
+  max_steps: 8
+  max_iterations: 2
+  reflect_rounds: 2
+  quality_threshold: 8
+  max_tool_rounds_per_step: 2
+  system_prompt: ""       # 留空使用范式默认提示词
+
+memory:
+  strategy: window        # window | summary | none
+  max_messages: 24
+  max_tokens: 3000
+  persist_path: ""        # 例如 runs/memory.json
+
+trace:
+  enabled: true
+  dir: runs
+  console: false
+  redact: true
+  save_result: true
+
+# 内置工具：calculator / current_time / word_count / weather
+tools:
+  - calculator
+  - current_time
+  - weather
+
+# 第三方插件：.py 文件路径或模块名
+plugins: []

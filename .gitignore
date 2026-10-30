@@ -1,0 +1,19 @@
+# secrets
+.env
+*.key
+
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# generated runs / reports
+runs/*.json
+runs/*.jsonl
+reports/*.json
+reports/*.html
+!reports/paradigm_comparison.md
+!runs/.gitkeep

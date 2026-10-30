@@ -1,0 +1,47 @@
+# 低代码工作流：周末出行简报
+# 节点只声明"做什么"，不写 Python；执行器负责拓扑排序、变量替换、Agent 调用与 Trace。
+name: 周末出行简报
+description: 查天气 -> 算外套预算 -> 条件提醒 -> Agent 写简报
+
+inputs:
+  city: 北京
+  coat_price: 299
+  count: 3
+
+nodes:
+  - id: weather
+    type: tool
+    tool: weather
+    args:
+      city: ${inputs.city}
+
+  - id: coat_total
+    type: tool
+    tool: calculator
+    args:
+      expression: ${inputs.coat_price} * ${inputs.count}
+
+  - id: rainy
+    type: condition
+    if: contains(${nodes.weather.output}, '雨')
+
+  - id: umbrella
+    type: template
+    when: ${nodes.rainy.output}
+    template: 提醒：${inputs.city}有雨，记得带伞。
+
+  - id: brief
+    type: agent
+    paradigm: react
+    max_steps: 4
+    tools: [current_time]
+    task: |
+      请根据下面的信息写一份 120 字以内的周末出行简报：
+      - 天气：${nodes.weather.output}
+      - 外套总价：${nodes.coat_total.output}
+      - 额外提醒：${nodes.umbrella.output}
+      要求：先给结论，再给两条可执行建议。
+
+  - id: result
+    type: output
+    value: ${nodes.brief.output}
