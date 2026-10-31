@@ -4,6 +4,8 @@
 >
 > 第 4 周阶段产物：自研智能体框架 v1.0（代码仓库 + 架构图 + 单元测试 + 端到端演示），
 > 把前三周的三范式、低代码工作流与可替换 Model Layer 迁到同一框架上运行。
+>
+> 仓库：**https://github.com/xiaolu-coding/haloagent-v1**
 
 ![架构图](docs/architecture.png)
 

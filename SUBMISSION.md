@@ -1,7 +1,7 @@
 # 第 4 周学习总结 · 提交填写稿
 
 > 直接复制下面各节到学习营的提交表单即可。
-> **提交前必须做一件事**：把工程推到你的 GitHub/Gitee，把第 3 节的链接替换成真实仓库地址。
+> 工程已发布到 GitHub：**https://github.com/xiaolu-coding/haloagent-v1**
 
 ---
 
@@ -32,41 +32,32 @@
 
 ## 3. 代码/工程链接（表单必填）
 
-### 现在可用的本地仓库
+### 公网仓库（已创建并推送）
 
 ```text
-E:\helloAgents学习\haloagent-v1
+https://github.com/xiaolu-coding/haloagent-v1
 ```
 
-本地已初始化 git，提交记录见 `git log -1 --oneline`。
+- 仓库类型：Public
+- 默认分支：main
+- 代码、架构图、测试、报告、提交稿均已上传
+- 本地路径：`E:\helloAgents学习\haloagent-v1`
 
-### 提交到公网（二选一）
+### 表单里的“代码/工程链接”直接填
 
-**GitHub：**
+```text
+https://github.com/xiaolu-coding/haloagent-v1
+```
+
+### 后续更新
 
 ```powershell
 cd E:\helloAgents学习\haloagent-v1
-git remote add origin https://github.com/<你的GitHub用户名>/haloagent-v1.git
-git branch -M main
-git push -u origin main
+git add -A
+git commit -m "update: ..."
+git push
 ```
 
-**Gitee：**
-
-```powershell
-cd E:\helloAgents学习\haloagent-v1
-git remote add origin https://gitee.com/<你的Gitee用户名>/haloagent-v1.git
-git branch -M main
-git push -u origin main
-```
-
-推送后，把表单里的链接填成：
-
-```text
-https://github.com/<你的GitHub用户名>/haloagent-v1
-```
-
-> 如果仓库设为私有，请把助教/评审加入协作者，或在提交时附上压缩包。
 > **不要提交 `.env`**；`.gitignore` 已排除。
 
 ---
@@ -98,7 +89,7 @@ https://github.com/<你的GitHub用户名>/haloagent-v1
 | 第 4 周要求 | 产出 | 证据 |
 |---|---|---|
 | 自研框架 v1.0 | `src/haloagent/` | 7 个模块、约 3.8k 行 |
-| 代码仓库 | 本地 git + 远端待推送 | `git log -1` |
+| 代码仓库 | GitHub 公开仓库 | https://github.com/xiaolu-coding/haloagent-v1 |
 | 架构图 | `docs/architecture.png` | 五层架构 |
 | 单元测试 | `tests/` | 22 passed |
 | 端到端演示 | `demo/` + CLI | 离线可跑 |
